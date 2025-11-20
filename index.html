@@ -1,0 +1,1771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICBAT 2025 - International Conference on Biological Sciences,AI,ML and Advanced Technologies</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0a1d3b;
+            --secondary: #6c63ff;
+            --accent: #ff8e72;
+            --light: #f5f3ff;
+            --dark: #050915;
+            --success: #12b886;
+            --warning: #f7b500;
+            --text: #081324;
+            --bg-light: #e9f0ff;
+            --card-bg: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background: radial-gradient(circle at 20% 20%, #fef4ff, #e6f1ff 45%, #d2e4ff 80%);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(120deg, rgba(10, 29, 59, 0.95), rgba(108, 99, 255, 0.95));
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            padding: 0.5rem 0;
+            background: rgba(8, 19, 36, 0.92);
+            backdrop-filter: blur(12px);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo img {
+            height: 50px;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            color: white;
+        }
+        
+        .logo-text p {
+            font-size: 0.8rem;
+            opacity: 0.8;
+            color: white;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding-bottom: 5px;
+        }
+        
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: white;
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(10, 29, 59, 0.85), rgba(108, 99, 255, 0.65)), 
+                        url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+            color: white;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding-top: 80px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            line-height: 1.2;
+            color: white;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .date-badge {
+            background: var(--accent);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            display: inline-block;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            animation: pulse 2s infinite;
+            font-size: 1.1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            margin: 0.5rem;
+            font-size: 1rem;
+        }
+        
+        .btn:hover {
+            background: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+        }
+        
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary);
+        }
+        
+        /* Section Styling */
+        .section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--text);
+        }
+        
+        /* About Section */
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .about-text {
+            flex: 1 1 500px;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+            color: var(--text);
+            line-height: 1.7;
+        }
+        
+        .about-images {
+            flex: 1 1 500px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+        
+        .about-img {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            height: 220px;
+        }
+        
+        .about-img:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15);
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        /* Themes / Tracks */
+        .themes {
+            background: linear-gradient(135deg, #f8fafc, #e0f2f9);
+        }
+        
+        .theme-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .theme-item {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 25px rgba(44, 62, 80, 0.08);
+            border-top: 4px solid var(--secondary);
+        }
+        
+        .theme-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+        }
+        
+        .theme-item ul {
+            margin-left: 1rem;
+            color: var(--text);
+            font-size: 0.95rem;
+        }
+        
+        .theme-item ul li {
+            margin-bottom: 0.3rem;
+        }
+        
+        /* Call for Papers */
+        .cfp {
+            background: var(--card-bg);
+        }
+        
+        .cfp-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .cfp-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 15px 35px rgba(15, 23, 42, 0.08);
+            border: 1px solid #e4ebf5;
+        }
+        
+        .cfp-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .guideline-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+        
+        .guideline-list li {
+            display: flex;
+            gap: 0.6rem;
+            align-items: flex-start;
+            color: var(--text);
+        }
+        
+        .guideline-list i {
+            color: var(--success);
+            margin-top: 0.2rem;
+        }
+        
+        .template-box {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            border: 1px dashed var(--secondary);
+            border-radius: 12px;
+            background: #f4f8ff;
+            text-align: center;
+        }
+        
+        .template-box h4 {
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .cfp-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 999px;
+            padding: 0.9rem 1.8rem;
+            font-weight: 600;
+            margin-top: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        
+        .cfp-btn:hover {
+            background: #c0392b;
+        }
+        
+        .publication-list {
+            list-style: disc;
+            margin-left: 1.2rem;
+            color: var(--text);
+        }
+        
+        /* Publication & Dates */
+        .publication-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .publication-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+        }
+        
+        .publication-card ul {
+            margin-left: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .publication-visual {
+            width: 100%;
+            border-radius: 12px;
+            margin-top: 1.5rem;
+            box-shadow: 0 10px 30px rgba(15,23,42,0.15);
+        }
+
+        .publication-image {
+            margin-top: 1.5rem;
+        }
+
+        .publication-image img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+            object-fit: cover;
+        }
+        
+        .date-timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+        }
+        
+        .timeline-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 1.2rem;
+            text-align: center;
+            border-top: 4px solid var(--secondary);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+        }
+        
+        .timeline-card h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        
+        .timeline-card p {
+            font-weight: 600;
+            color: var(--accent);
+        }
+        
+        /* Committee */
+        .committee-columns {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .committee-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+        }
+        
+        .committee-card h3 {
+            margin-bottom: 1rem;
+        }
+        
+        .committee-card ul {
+            margin-left: 1.2rem;
+            line-height: 1.7;
+        }
+
+        .committee-wide {
+            grid-column: 1 / -1;
+        }
+
+        .two-column-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 0.6rem 1.5rem;
+        }
+        
+        .two-column-list li {
+            margin: 0;
+            position: relative;
+            padding-left: 18px;
+        }
+
+        .two-column-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+        
+        /* Awards */
+        .awards-list {
+            columns: 2;
+            column-gap: 2rem;
+        }
+        
+        .awards-list li {
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .awards-list {
+                columns: 1;
+            }
+        }
+        
+        /* Committee Section */
+        .committee-members {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .member-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .member-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .member-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .member-info p {
+            color: var(--text);
+            font-size: 0.9rem;
+        }
+        
+        /* Registration Section */
+        .registration {
+            background: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+            position: relative;
+            color: white;
+        }
+        
+        .registration::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 30, 50, 0.85);
+        }
+        
+        .registration .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .registration .section-title h2 {
+            color: white;
+        }
+        
+        .pricing-table {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 2rem;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th, td {
+            padding: 1.2rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        th {
+            background: rgba(255, 255, 255, 0.2);
+            font-weight: 600;
+        }
+        
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .highlight {
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        /* Call for Papers */
+        .paper-guidelines {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+        }
+        
+        .paper-guidelines h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .paper-guidelines ul {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+        
+        .paper-guidelines ul li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+        }
+        
+        .paper-guidelines ul li:last-child {
+            border-bottom: none;
+        }
+        
+        .deadlines {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .deadline-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .deadline-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .deadline-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .deadline-card .date {
+            font-weight: bold;
+            color: var(--secondary);
+            font-size: 1rem;
+        }
+        
+        /* Past Events */
+        .events-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .event-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .event-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        /* Partners */
+        .partners-logos {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 2rem;
+            align-items: center;
+            justify-items: center;
+        }
+        
+        .logo-rows {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+        }
+        
+        .logo-chip {
+            width: 100%;
+            background: rgba(255,255,255,0.9);
+            border-radius: 10px;
+            padding: 1rem;
+            text-align: center;
+            font-weight: 600;
+            color: var(--primary);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+        
+        .partner-logo {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100px;
+            width: 100%;
+        }
+        
+        .partner-logo:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .partner-logo img {
+            max-width: 100%;
+            max-height: 70px;
+            object-fit: contain;
+        }
+        
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            margin-top: 0.3rem;
+        }
+        
+        .contact-text h3 {
+            margin-bottom: 0.3rem;
+            color: var(--primary);
+        }
+        
+        .contact-text a {
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-text a:hover {
+            color: var(--secondary);
+        }
+        
+        .contact-form {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .contact-form h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 0.8rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            background: #c0392b;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-logo {
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-logo img {
+            height: 50px;
+        }
+        
+        .footer-about p {
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .footer-social a {
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-social a:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .footer-links h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+            color: white;
+        }
+        
+        .footer-links h3:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background: var(--secondary);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+        
+        .footer-newsletter p {
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        .newsletter-form {
+            display: flex;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .newsletter-form button {
+            padding: 0 1.5rem;
+            background: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter-form button:hover {
+            background: #2980b9;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-bottom p {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 80%;
+                height: calc(100vh - 80px);
+                background: var(--primary);
+                transition: all 0.3s ease;
+                z-index: 999;
+                padding: 2rem;
+            }
+            
+            nav.active {
+                left: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 1rem 0;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-images {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .date-badge {
+                font-size: 0.9rem;
+            }
+            
+            .btn {
+                padding: 0.6rem 1.5rem;
+                font-size: 0.9rem;
+                display: block;
+                width: 100%;
+                margin: 0.5rem 0;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .deadlines {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-text">
+                    <h1>ICIAET 2025</h1>
+                    <p>Innovations & Trends in Advanced Engineering Technologies</p>
+                </div>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#themes">Themes</a></li>
+                    <li><a href="#publications">Publications</a></li>
+                    <li><a href="#committee">Committee</a></li>
+                    <li><a href="#awards">Awards</a></li>
+                    <li><a href="#partners">Partners</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>ICIAET 2025</h1>
+                <p style="font-size:1.2rem;font-weight:600;margin-bottom:0.5rem;">
+                    International Conference on Innovations and Trends in Advanced Engineering Technologies
+                </p>
+                <div class="date-badge">25th – 26th Nov 2025 | 10:00 AM – 5:00 PM IST</div>
+                <p>
+                    Organised by BRC & Global Institute PN, ICIAET 2025 spotlights expert lectures, high-impact publications, and global networking for the engineering innovation community.
+                </p>
+                <div>
+                    <a href="#dates" class="btn">Register Now</a>
+                    <a href="#call-for-papers" class="btn btn-outline">Call for Papers</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About ICIAET 2025</h2>
+                <p>The International Conference on Innovations and Trends in Advanced Engineering Technologies</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Driving engineering breakthroughs through collaboration</h3>
+                    <p>
+                        <strong>ICIAET 2025</strong> convenes pioneering researchers, engineers, startups, policy makers, and industry innovators to explore how intelligent systems, sustainable design, and interdisciplinary collaboration are transforming advanced engineering technologies.
+                    </p>
+                    <p>
+                        Over two immersive days in November 2025, delegates will share disruptive prototypes, debate the future of automation, experience expert lectures, and fast-track publication opportunities with globally indexed outlets.
+                    </p>
+                    <p>
+                        Organised by <strong>Bioreserach Community (BRC)</strong> and <strong>Global Institute PN</strong>, the conference emphasises practical impact across smart manufacturing, resilient infrastructure, mobility, healthtech, communications, and data-driven engineering.
+                    </p>
+                    <p>
+                        Join us in shaping the next generation of sustainable, intelligent engineering systems while networking with authors, reviewers, and partners from every continent.
+                    </p>
+                </div>
+                <div class="about-images">
+                    <div class="about-img">
+                        <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Biological Sciences">
+                    </div>
+                    <div class="about-img">
+                        <img src="https://images.unsplash.com/photo-1581094271901-8022df4466f9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Advanced Technologies">
+                    </div>
+                    <div class="about-img">
+                        <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Research Team">
+                    </div>
+                    <div class="about-img">
+                        <img src="https://images.unsplash.com/photo-1575505586569-646b2ca898fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1465&q=80" alt="Scientific Collaboration">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  <!-- Themes Section -->
+<section class="section themes" id="themes">
+    <div class="container">
+        <div class="section-title">
+            <h2>Call for Papers</h2>
+            <p>ICIAET 2025 welcomes original, high-quality submissions across the following tracks.</p>
+        </div>
+        <div class="theme-list">
+            <div class="theme-item">
+                <h3>1. Artificial Intelligence & Machine Learning in Engineering</h3>
+                <ul>
+                    <li>AI-driven design and optimisation in engineering systems</li>
+                    <li>Predictive maintenance & smart manufacturing</li>
+                    <li>Edge and cloud AI for industrial automation</li>
+                    <li>Explainable AI and ethics in engineering applications</li>
+                </ul>
+            </div>
+            <div class="theme-item">
+                <h3>2. Advanced Materials & Nanotechnology</h3>
+                <ul>
+                    <li>Smart materials and intelligent composites</li>
+                    <li>Nanomaterials for energy, electronics, and biomedical use</li>
+                    <li>Additive manufacturing plus 3D/4D printing</li>
+                    <li>Sustainable and recyclable material technologies</li>
+                </ul>
+            </div>
+            <div class="theme-item">
+                <h3>3. IoT & Cyber-Physical Systems</h3>
+                <ul>
+                    <li>Industrial IoT and Industry 5.0 applications</li>
+                    <li>Digital twins and virtual engineering</li>
+                    <li>Cybersecurity in connected systems</li>
+                    <li>Sensor networks and edge intelligence</li>
+                </ul>
+            </div>
+            <div class="theme-item">
+                <h3>4. Robotics, Automation & Control</h3>
+                <ul>
+                    <li>Autonomous systems and intelligent robotics</li>
+                    <li>Human–robot collaboration and cobots</li>
+                    <li>Advanced control theory and mechatronics</li>
+                    <li>Embedded systems innovations</li>
+                </ul>
+            </div>
+            <div class="theme-item">
+                <h3>5. Sustainable & Green Engineering</h3>
+                <ul>
+                    <li>Renewable energy systems and smart grids</li>
+                    <li>Energy-efficient and sustainable manufacturing</li>
+                    <li>Waste-to-energy conversion and circular economy</li>
+                    <li>Environmental impact modelling & mitigation</li>
+                </ul>
+            </div>
+            <div class="theme-item">
+                <h3>6. Advanced Communication & Computing</h3>
+                <ul>
+                    <li>5G/6G networks and next-gen protocols</li>
+                    <li>Quantum computing and cryptography</li>
+                    <li>High-performance & cloud architectures</li>
+                    <li>Embedded and real-time systems</li>
+                </ul>
+            </div>
+            <div class="theme-item">
+                <h3>7. Civil, Structural & Smart Infrastructure</h3>
+                <ul>
+                    <li>Smart cities and intelligent transportation</li>
+                    <li>Earthquake-resistant & resilient infrastructure</li>
+                    <li>Sustainable construction materials and methods</li>
+                    <li>BIM and digital construction workflows</li>
+                </ul>
+            </div>
+            <div class="theme-item">
+                <h3>8. Biomedical & Healthcare Engineering</h3>
+                <ul>
+                    <li>AI and IoT for healthcare monitoring</li>
+                    <li>Biomedical signal & image processing</li>
+                    <li>Wearable and implantable medical devices</li>
+                    <li>Tissue engineering & bioinformatics</li>
+                </ul>
+            </div>
+            <div class="theme-item">
+                <h3>9. Automotive, Aerospace & Transportation</h3>
+                <ul>
+                    <li>Electric and hybrid vehicle technologies</li>
+                    <li>Autonomous & connected mobility</li>
+                    <li>Advanced propulsion and aerodynamics</li>
+                    <li>Smart logistics and transport infrastructure</li>
+                </ul>
+            </div>
+            <div class="theme-item">
+                <h3>10. Data Science, Simulation & Computational Engineering</h3>
+                <ul>
+                    <li>Big data analytics for engineering decisions</li>
+                    <li>Computational modelling and simulation</li>
+                    <li>Digital engineering platforms & cloud design</li>
+                    <li>Optimisation algorithms for complex systems</li>
+                </ul>
+            </div>
+            <div class="theme-item">
+                <h3>11. Emerging Technologies & Interdisciplinary Innovation</h3>
+                <ul>
+                    <li>Blockchain in engineering and supply chains</li>
+                    <li>Augmented/virtual reality for design & education</li>
+                    <li>Human-centred and ethical technology design</li>
+                    <li>Cross-domain applications of AI and IoT</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Call for Papers Section -->
+    <section class="section cfp" id="call-for-papers">
+        <div class="container">
+            <div class="section-title">
+                <h2>Call for Papers</h2>
+                <p>Submit your original research to be showcased at ICIAET 2025.</p>
+            </div>
+            <div class="cfp-wrapper">
+                <div class="cfp-card">
+                    <h3><i class="fas fa-thumbtack"></i> Submission Guidelines</h3>
+                    <ul class="guideline-list">
+                        <li><i class="fas fa-check-circle"></i><span>Original, unpublished manuscripts not under review elsewhere.</span></li>
+                        <li><i class="fas fa-check-circle"></i><span>Prepared in English using the official conference template.</span></li>
+                        <li><i class="fas fa-check-circle"></i><span>Submitted through the ICIAET online submission portal only.</span></li>
+                        <li><i class="fas fa-check-circle"></i><span>Peer-reviewed by domain experts appointed by the technical committee.</span></li>
+                        <li><i class="fas fa-check-circle"></i><span>Limit of 8 pages per paper (including figures, tables, and references).</span></li>
+                    </ul>
+                    <div class="template-box">
+                        <h4><i class="fas fa-file-download"></i> Paper Template</h4>
+                        <p>Download the official IEEE-styled template to format your manuscript correctly.</p>
+                        <a href="full_paper_template.pdf" class="cfp-btn" download>
+                            <i class="fas fa-download"></i> Download IEEE Template
+                        </a>
+                    </div>
+                </div>
+                <div class="cfp-card">
+                    <h3><i class="fas fa-book"></i> Publication Opportunities</h3>
+                    <p>
+                        All accepted papers will appear in the official ICIAET 2025 proceedings. Selected high-quality, extended versions will be invited for publication in special issues of renowned <strong>SCOPUS Indexed</strong> journals and partner book series.
+                    </p>
+                    <ul class="publication-list">
+                        <li>Book Series of Data Science and Knowledge Engineering</li>
+                        <li>Springer, JoVE, Frontiers, IEEE Access, Elsevier titles, IET & Inderscience journals</li>
+                        <li>Fast-track collaboration opportunities with industry-backed editions</li>
+                    </ul>
+                    <div class="template-box" style="background:#f2fdf7;border-color:var(--success);">
+                        <h4><i class="fas fa-envelope-open-text"></i> Submit Your Paper</h4>
+                        <p>Send abstracts and full manuscripts to the organising committee.</p>
+                        <a href="mailto:iciaet2025@gmail.com" class="cfp-btn" style="background:var(--success);">
+                            <i class="fas fa-paper-plane"></i> Submit to ICIAET
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Section -->
+    <section class="section registration" id="registration">
+        <div class="container">
+            <div class="section-title">
+                <h2>Registration</h2>
+                <p>Choose the category that best fits your participation mode and membership status.</p>
+            </div>
+            <div class="pricing-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Non-IEEE Members</th>
+                            <th>IEEE Members</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="3" style="background: rgba(255, 255, 255, 0.3); font-weight: bold; text-align: center;">INDIAN DELEGATES</td>
+                        </tr>
+                        <tr>
+                            <td>Faculty/Academia/Industry (Presentation &amp; Publication)</td>
+                            <td>INR 29,999</td>
+                            <td>INR 27,999</td>
+                        </tr>
+                        <tr>
+                            <td>UG, PG Students / Research scholars (Presentation &amp; Publication)</td>
+                            <td>INR 24,999</td>
+                            <td>INR 22,999</td>
+                        </tr>
+                        <tr>
+                            <td>Faculty/Academia/Industry (Only attending)</td>
+                            <td>INR 2,999</td>
+                            <td>INR 2,499</td>
+                        </tr>
+                        <tr>
+                            <td>UG, PG Students / Research (Only attending)</td>
+                            <td>INR 1,499</td>
+                            <td>INR 999</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" style="background: rgba(255, 255, 255, 0.3); font-weight: bold; text-align: center;">FOREIGN DELEGATES</td>
+                        </tr>
+                        <tr>
+                            <td>Faculty/Academia/Industry (Presentation &amp; Publication)</td>
+                            <td>250 $</td>
+                            <td>220 $</td>
+                        </tr>
+                        <tr>
+                            <td>UG, PG Students / Research scholars (Presentation &amp; Publication)</td>
+                            <td>200 $</td>
+                            <td>175 $</td>
+                        </tr>
+                        <tr>
+                            <td>Faculty/Academia/Industry (Only attending)</td>
+                            <td>50 $</td>
+                            <td>35 $</td>
+                        </tr>
+                        <tr>
+                            <td>UG, PG Students / Research (Only attending)</td>
+                            <td>30 $</td>
+                            <td>20 $</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section class="section" id="publications">
+        <div class="container">
+            <div class="section-title">
+                <h2>Publication Information</h2>
+                <p>Showcase your research with high-impact proceedings and curated journal partnerships.</p>
+            </div>
+            <div class="publication-grid">
+                <div class="publication-card">
+                    <h3>Special Issues & Journal Partners</h3>
+                    <p>Extended versions of selected papers will be invited to special issues of leading outlets:</p>
+                    <img src="WhatsApp Image 2025-11-20 at 2.38.49 PM.jpeg" alt="ICIAET publication partners and journal covers" class="publication-visual">
+                    <p style="margin-top:1rem;">Detailed journal allocation will be communicated with acceptance notifications.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Important Dates Section -->
+    <section class="section" id="dates">
+        <div class="container">
+            <div class="section-title">
+                <h2>Important Dates</h2>
+                <p>Stay on schedule with the ICIAET 2025 submission and registration milestones.</p>
+            </div>
+            <div class="date-timeline">
+                <div class="timeline-card">
+                    <h4>Abstract Submission</h4>
+                    <p>15 Oct 2025</p>
+                </div>
+                <div class="timeline-card">
+                    <h4>Acceptance Notification</h4>
+                    <p>26 Oct 2025</p>
+                </div>
+                <div class="timeline-card">
+                    <h4>Full Paper Submission</h4>
+                    <p>30 Oct 2025</p>
+                </div>
+                <div class="timeline-card">
+                    <h4>Early Bird Registration</h4>
+                    <p>5 Nov 2025</p>
+                </div>
+                <div class="timeline-card">
+                    <h4>Conference Dates</h4>
+                    <p>25–26 Nov 2025</p>
+                </div>
+            </div>
+            <div style="text-align:center;margin-top:2rem;">
+                <a href="mailto:iciaet2025@gmail.com" class="btn">Submit Abstract</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Committee Section -->
+    <section class="section" id="committee">
+        <div class="container">
+            <div class="section-title">
+                <h2>Organising & Technical Committees</h2>
+                <p>ICIAET 2025 is powered by a diverse team of academic and industry advisors.</p>
+            </div>
+            <div class="committee-columns">
+                <div class="committee-card committee-wide">
+                    <h3>Technical Committee</h3>
+                    <ul class="two-column-list">
+                        <li>Haider T.H. Salim AlRboki, Wasit University, Iraq</li>
+                        <li>Dr Rishabh Anand, Google</li>
+                        <li>Anand Pabanorasu, AU, USA</li>
+                        <li>Dr I. Ramesh, Bharathiar University</li>
+                        <li>Prof. (Dr.) Sailesh Suryanarayan Iyer, Rai University</li>
+                        <li>Dr Sanjeevkumar Angadi, DBATU</li>
+                        <li>Dr Dheeraj Chitara, JECRC University</li>
+                        <li>Dr Waseem Ahmad Mir, JSPM University Pune</li>
+                        <li>Dr Biswaj Raman Das, IMIT</li>
+                        <li>Dr Shiva Shankar Reddy, ANU Kakinada</li>
+                        <li>Dr R. Manikandan, SASTRA Deemed University</li>
+                        <li>Uvesh Sipai, Marwadi University</li>
+                        <li>Dr S. Revathy, SRM Institute of Science & Technology</li>
+                        <li>Dr Meenakshi Srivastava, Amity University</li>
+                        <li>Siddhartha Chatterjee, Dept. of CSE</li>
+                        <li>Dr T. Ananthi Kumari, IFET College of Engineering</li>
+                        <li>Dr Shwetha Kumar, IIIMT</li>
+                        <li>Dr Biswajit Basu Mallick, IEM Kolkata</li>
+                        <li>Catherine Roz, Associate Professor</li>
+                        <li>Dr A. Lalitha Thakshashila, SRM University</li>
+                        <li>Dr Paritha Banu J, SRM University</li>
+                        <li>Nandhini P.S., Anna University</li>
+                        <li>Prof. Mohit Tiwari, BVCOE</li>
+                        <li>Rupsha Roy, Amity University Kolkata</li>
+                        <li>Dr Pankaj Bhambri, GNDEC Ludhiana</li>
+                        <li>Prof. Thanuja V., Bangalore University</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section class="section" id="awards">
+        <div class="container">
+            <div class="section-title">
+                <h2>Awards & Recognitions</h2>
+                <p>Celebrate excellence in research, innovation, and collaboration.</p>
+            </div>
+            <ul class="awards-list">
+                <li>Best Paper Award</li>
+                <li>Best Presentation Award</li>
+                <li>Best Student Paper Award</li>
+                <li>Best Poster Presentation Award</li>
+                <li>Best Oral Presentation Award</li>
+                <li>Innovative Solution Award</li>
+                <li>Best Research Methodology Award</li>
+                <li>Excellence in Innovation Award</li>
+                <li>Best Collaborative Research Award</li>
+                <li>Industry Application Award</li>
+                <li>Outstanding Research Contribution Award</li>
+                <li>Best Emerging Technology Award</li>
+                <li>Excellence in Engineering Award</li>
+                <li>Best Case Study Award</li>
+                <li>Innovation in Sustainability Award</li>
+                <li>Best Use of Technology Award</li>
+                <li>Most Impactful Research Award</li>
+                <li>Best Interdisciplinary Research Award</li>
+                <li>Young Innovator Award</li>
+                <li>Best Application of AI/ML Award</li>
+                <li>Outstanding Achievement in Engineering</li>
+                <li>Best Research-Industry Collaboration Award</li>
+                <li>Excellence in Design Award</li>
+                <li>Best Prototyping Award</li>
+                <li>Innovative Problem-Solving Award</li>
+            </ul>
+            <p style="margin-top:1.5rem;text-align:center;">Awardees receive conference recognition, digital certificates, mementos, and a fee waiver for one paper in ICIAET 2026.</p>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="section" id="partners">
+        <div class="container">
+            <div class="section-title">
+                <h2>Co-Organisers & Partners</h2>
+                <p>ICIAET 2025 is proudly supported by academic societies and publishing collaborators.</p>
+            </div>
+            <h3 style="text-align:center;margin-bottom:1rem;">Co-Organisers</h3>
+            <div class="partners-logos" style="margin-bottom:2rem;">
+                <div class="partner-logo">
+                    <img src="IEEE.jpeg" alt="IEEE VISAT Student Branch">
+                </div>
+                <div class="partner-logo">
+                    <img src="IGT.png" alt="Institute of Global Technology">
+                </div>
+            </div>
+            <h3 style="text-align:center;margin:2.5rem 0 1rem;">Publication Partners</h3>
+            <div class="partners-logos">
+                <div class="partner-logo">
+                    <img src="brc logo.png" alt="BR Publishing House">
+                </div>
+                <div class="partner-logo">
+                    <img src="scopus.svg" alt="Scopus">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Reach the ICIAET 2025 organising committee for submissions, partnerships, or media queries.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Conference Mode</h3>
+                            <p>Hybrid • Global participation</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Call / WhatsApp</h3>
+                            <a href="tel:+918867394159">+91 88673 94159</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Email</h3>
+                            <a href="mailto:iciaet2025@gmail.com">iciaet2025@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Website</h3>
+                            <a href="https://www.iciaet.org" target="_blank" rel="noreferrer">www.iciaet.org</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <h2>ICIAET 2025</h2>
+                    </div>
+                    <p>International Conference on Innovations and Trends in Advanced Engineering Technologies.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">Overview</a></li>
+                        <li><a href="#themes">Themes</a></li>
+                        <li><a href="#publications">Publications</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#committee">Committee</a></li>
+                        <li><a href="#awards">Awards</a></li>
+                        <li><a href="#partners">Partners</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to get official updates, paper submission reminders, and partnership news.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your Email" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ICIAET • Bioreserach Community & Global Institute PN. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const nav = document.getElementById('nav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll('nav ul li a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                document.getElementById('header').classList.add('scrolled');
+            } else {
+                document.getElementById('header').classList.remove('scrolled');
+            }
+        });
+        
+        // Animation on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.fade-in-left, .fade-in-right');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateX(0)';
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
+
